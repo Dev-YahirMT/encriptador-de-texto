@@ -23,11 +23,19 @@
 
 .seccion-derecha {
     flex: 3;
-    background-color: lightblue;
-    padding: 20px;
-    box-sizing: border-box;
+    display: flex;
     flex-direction: column;
     font-family: var(--fuente-inter);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.div-encriptar{
+    flex: 1;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .div-botones {
@@ -37,32 +45,24 @@
     justify-content: center;
 }
 
-.div-encriptar{
-    flex: 1; /* Ocupa todo el espacio disponible */
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .div-encriptar textarea {
     flex: 1;
     width: 80%;
     height: 80%;
     font-family: var(--fuente-inter);
-    background-color: inherit; /* Mismo fondo que el body */
-    border: none; /* Sin borde */
-    outline: none; /* Elimina el contorno al enfocarse */
-    resize: none; /* Evita que se redimensione */
-    font-size: 1.5rem; /* Ajusta el tamaño de la fuente según sea necesario */
+    background-color: inherit;
+    border: none; 
+    outline: none;
+    resize: none;
+    font-size: 1.5rem;
     padding: 10px;
-    box-sizing: border-box; /* Considera el padding en el tamaño del textarea */
+    box-sizing: border-box;
     margin-left: 10%;
     margin-right: 10%;
 }
 
 .div-encriptar textarea::placeholder {
-    color: #888; /* Color para el texto del placeholder */
+    color: #0a3871;
 }
 
 
@@ -72,12 +72,30 @@ body{
     color: var(--color-secundaria);
     
 }
-
+.div-resp-text{
+    flex: 1;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.div-resp-text span{
+    flex: 1;
+    width: 80%;
+    height: 80%;
+    font-family: var(--fuente-inter);
+    background-color: inherit;
+    font-size: 1.5rem;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-left: 10%;
+    margin-right: 10%;
+}
 .div-respuestas{
     flex: 1;
-    display: flex; /* Habilita flexbox */
+    display: flex;
     flex-direction: column;
-    justify-content: center; /* Centra horizontalmente */
+    justify-content: center;
     align-items: center; 
     width: 100%;
     height: 100%;
@@ -87,7 +105,26 @@ body{
     box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
     border-radius: 32px;
 }
-
+.div-resp-btn {
+    margin-bottom: 5px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.div-esperando{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    width: 100%;
+    height: 100%;
+    left: 60%;
+    top: 5%;
+    background: #fff;
+    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+    border-radius: 32px;
+}
 
 .btn-encriptar {
     align-items: center;
@@ -125,12 +162,33 @@ body{
     color: var(--color-AzulFuerte);;
 }
 
+.botonCopiar {
+    box-sizing: border-box;
+    margin-left: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2%;
+    gap: 8px;
+    width: 40%;
+    background: #ffffff;
+    border: 1px solid var(--color-AzulFuerte);;
+    border-radius: 24px;
+    font-family: "Inter";
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 19px;
+    text-align: center;
+    color: var(--color-AzulFuerte);;
+}
+
 
 .footer {
     text-align: center;
     padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
+    background-color:var(--color-AzulFuerte);
+    color: var(--color-primaria);
     font-size: 1rem;
     width: 100%;
     box-sizing: border-box;
@@ -148,6 +206,10 @@ body{
     width: 80%;
     left: 12%;
     top: 80%;
+}
+
+.oculto {
+    display: none;
 }
 @media (max-width: 950px) {
     .contenedor {

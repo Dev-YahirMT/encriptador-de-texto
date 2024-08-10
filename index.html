@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pantalla Dividida con Flex</title>
+    <title>Encriptador de Texto</title>
+    <link rel="shortcut icon" href="img/logo2.png" type="image/x-icon" />
     <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
-<img src="img/icono.png" alt="" style="margin-top: 40px; display: flex;" width="10%">
+
 <div class="contenedor">
-    <!-- Primera división (sección izquierda) -->
     <div class="seccion-izquierda">
+        <div>
+            <img src="img/icono.png" alt="" style="margin-top: 10px; display: flex;" width="11%">
+        </div>
         <div class="div-encriptar">
             <textarea
                 name="texto"
@@ -29,21 +33,27 @@
             <button type="button" class="btn-desencriptar" value="Desencriptar" onclick="desencriptar()">Desencriptar</button>
         </div>
     </div>
-
-    <!-- Segunda división (sección derecha) -->
     <div class="seccion-derecha">
-        <div class="div-respuestas">
-            <img src="img/buscando_texto.png" alt="">
+        <div id="div-esperando" class="div-esperando">
+            <img src="img/buscando_texto.png" alt="" id="buscandoTexto">
             <h2 id="titulo-mensaje" style="text-align: center">Ningún mensaje fue encontrado</h2>
             <p id="parrafo" style="text-align: center">
-            Ingresa el texto que deseas encriptar o desencriptar
+                Ingresa el texto que deseas encriptar o desencriptar
             </p>
         </div>
-        
+        <div id="div-respuestas" class="div-respuestas" style="display: none;">
+            <div class="div-resp-text">
+                <span id="textoEncriptado" class="textoEncriptado"></span>
+            </div>
+            <div class="div-resp-btn">
+                <button id="botonCopiar" class="botonCopiar" type="button" onclick="copiarAlPortapapeles()" style="display: none;">Copiar</button>
+            </div>
+        </div>   
     </div>
 </div>
 <footer class="footer">
     <p>Desarrollado por yahir melgarejo</p>
 </footer>
+<script src="assets/index.js"></script>
 </body>
 </html>

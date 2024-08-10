@@ -20,10 +20,7 @@ function copiarAlPortapapeles() {
 
 function encriptar() {
   let texto = document.getElementById("texto").value;
-  let tituloMensaje = document.getElementById("titulo-mensaje");
-  let parrafo = document.getElementById("parrafo");
   let spanTexto = document.getElementById("textoEncriptado");
-  let muñeco = document.getElementById("muñeco");
   let myButton = document.getElementById('botonCopiar');
 
   let textoCifrado = texto
@@ -34,20 +31,18 @@ function encriptar() {
     .replace(/u/gi, "ufat");
 
   if (texto.length != 0) {
-    var imagen = document.getElementById('buscandoTexto');
-    imagen.style.display = 'none';  // Oculta la imagen
     spanTexto.textContent = textoCifrado;
+    spanTexto.style.display = 'block';
     myButton.style.display = 'block';
-    tituloMensaje.textContent = "";
-    parrafo.textContent = "";
+    document.getElementById('div-esperando').classList.add('oculto');
+    document.getElementById('div-respuestas').style.display = 'block';
   } else {
     var imagen = document.getElementById('buscandoTexto');
-    imagen.style.display = 'block';
+    document.getElementById('div-esperando').classList.remove('oculto');;
+    document.getElementById('div-respuestas').style.display = 'none';
     spanTexto.textContent = textoCifrado;
     myButton.style.display = 'none';
-    tituloMensaje.textContent = "Ningún mensaje fue encontrado";
-    parrafo.textContent = "Ingresa el texto que deseas encriptar o desencriptar";
-    swal("Ooops!", "Debes ingresar un texto", "warning");
+    swal("¡Faltan datos!", "Debes ingresar texto", "warning");
   }
 }
 
