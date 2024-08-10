@@ -3,9 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pantalla Dividida con Flex</title>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    
+<img src="img/icono.png" alt="" style="margin-top: 40px; display: flex;" width="10%">
+<div class="contenedor">
+    <!-- Primera división (sección izquierda) -->
+    <div class="seccion-izquierda">
+        <div class="div-encriptar">
+            <textarea
+                name="texto"
+                class="texto"
+                id="texto"
+                cols="30"
+                rows="10"
+                placeholder="Ingresa el texto aquí"
+            ></textarea>
+        </div>
+        <div class="terminos" style="margin-left: 10%;">
+            <img src="img/exclama.png" alt=""><p>Solo letras minúsculas y sin acentos.</p>
+        </div>
+        <div class="div-botones">
+            <button class="btn-encriptar" type="button" onclick="encriptar()">Encriptar</button>
+            <button type="button" class="btn-desencriptar" value="Desencriptar" onclick="desencriptar()">Desencriptar</button>
+        </div>
+    </div>
+
+    <!-- Segunda división (sección derecha) -->
+    <div class="seccion-derecha">
+        <div class="div-respuestas">
+            <img src="img/buscando_texto.png" alt="">
+            <h2 id="titulo-mensaje" style="text-align: center">Ningún mensaje fue encontrado</h2>
+            <p id="parrafo" style="text-align: center">
+            Ingresa el texto que deseas encriptar o desencriptar
+            </p>
+        </div>
+        
+    </div>
+</div>
+<footer class="footer">
+    <p>Desarrollado por yahir melgarejo</p>
+</footer>
 </body>
 </html>
