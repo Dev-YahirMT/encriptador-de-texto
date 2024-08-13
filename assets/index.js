@@ -1,6 +1,5 @@
 function copiarAlPortapapeles() {
   let textoSpan = document.getElementById('textoEncriptado');
-
   if (textoSpan) {
       const textarea = document.createElement('textarea');
       textarea.value = textoSpan.textContent;
