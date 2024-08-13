@@ -23,14 +23,8 @@ function copiarAlPortapapeles() {
 function encriptarTexto() {
   let texto = document.getElementById("texto").value.toLowerCase();;
   let spanTexto = document.getElementById("textoEncriptado");
-  let myButton = document.getElementById('botonCopiar');
 
-  let textoCifrado = texto
-    .replace(/e/gi, "enter")
-    .replace(/i/gi, "imes")
-    .replace(/a/gi, "ai")
-    .replace(/o/gi, "ober")
-    .replace(/u/gi, "ufat");
+  let textoCifrado = texto.replace(/e/gi, "enter").replace(/i/gi, "imes").replace(/a/gi, "ai").replace(/o/gi, "ober").replace(/u/gi, "ufat");
 
   if (texto.length != 0) {
     spanTexto.textContent = textoCifrado;
@@ -58,17 +52,9 @@ function encriptarTexto() {
 
 function desencriptarTexto() {
   let texto = document.getElementById("texto").value;
-  let tituloMensaje = document.getElementById("titulo-mensaje");
-  let parrafo = document.getElementById("parrafo");
   let spanTexto = document.getElementById("textoEncriptado");
-  let myButton = document.getElementById('botonCopiar');
 
-  let textoCifrado = texto
-    .replace(/enter/gi, "e")
-    .replace(/imes/gi, "i")
-    .replace(/ai/gi, "a")
-    .replace(/ober/gi, "o")
-    .replace(/ufat/gi, "u");
+  let textoCifrado = texto.replace(/enter/gi, "e").replace(/imes/gi, "i").replace(/ai/gi, "a").replace(/ober/gi, "o").replace(/ufat/gi, "u");
   
     if (texto.length != 0) {
       spanTexto.textContent = textoCifrado;
