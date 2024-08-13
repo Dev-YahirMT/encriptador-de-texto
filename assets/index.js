@@ -1,9 +1,7 @@
 function copiarAlPortapapeles() {
-  // Obtén el elemento <span> usando su ID
   let textoSpan = document.getElementById('textoEncriptado');
 
   if (textoSpan) {
-      // Crear un textarea temporal
       const textarea = document.createElement('textarea');
       textarea.value = textoSpan.textContent;
       document.body.appendChild(textarea);
@@ -11,15 +9,20 @@ function copiarAlPortapapeles() {
       document.execCommand('copy');
       document.body.removeChild(textarea);
 
-      // Opcional: Confirmación al usuario
-      alert('Texto copiado al portapapeles');
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Texto Copiado",
+        showConfirmButton: false,
+        timer: 1000
+      });
   } else {
       console.error('Elemento con id "textoRegresado" no encontrado.');
   }
 }
 
-function encriptar() {
-  let texto = document.getElementById("texto").value;
+function encriptarTexto() {
+  let texto = document.getElementById("texto").value.toLowerCase();;
   let spanTexto = document.getElementById("textoEncriptado");
   let myButton = document.getElementById('botonCopiar');
 
@@ -32,25 +35,34 @@ function encriptar() {
 
   if (texto.length != 0) {
     spanTexto.textContent = textoCifrado;
-    spanTexto.style.display = 'block';
-    myButton.style.display = 'block';
     document.getElementById('div-esperando').classList.add('oculto');
-    document.getElementById('div-respuestas').style.display = 'block';
+    document.getElementById('div-respuestas').classList.remove('oculto');
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Texto encriptado exitosamente",
+      showConfirmButton: false,
+      timer: 1000
+    });
   } else {
-    var imagen = document.getElementById('buscandoTexto');
-    document.getElementById('div-esperando').classList.remove('oculto');;
-    document.getElementById('div-respuestas').style.display = 'none';
-    spanTexto.textContent = textoCifrado;
-    myButton.style.display = 'none';
-    swal("¡Faltan datos!", "Debes ingresar texto", "warning");
+    document.getElementById('div-esperando').classList.remove('oculto');
+    document.getElementById('div-respuestas').classList.add('oculto');
+    Swal.fire({
+      position: "top-end",
+      icon: "error",
+      title: "Ingresa Texto a encriptar",
+      showConfirmButton: false,
+      timer: 1000
+    });
   }
 }
 
-function desencriptar() {
+function desencriptarTexto() {
   let texto = document.getElementById("texto").value;
   let tituloMensaje = document.getElementById("titulo-mensaje");
   let parrafo = document.getElementById("parrafo");
-  let muñeco = document.getElementById("muñeco");
+  let spanTexto = document.getElementById("textoEncriptado");
+  let myButton = document.getElementById('botonCopiar');
 
   let textoCifrado = texto
     .replace(/enter/gi, "e")
@@ -60,14 +72,25 @@ function desencriptar() {
     .replace(/ufat/gi, "u");
   
     if (texto.length != 0) {
-      document.getElementById("texto").value = textoCifrado;
-      tituloMensaje.textContent = "Texto desencriptado con éxito";
-      parrafo.textContent = "";
-      muñeco.src = "./img/desencriptado.jpg";
+      spanTexto.textContent = textoCifrado;
+      document.getElementById('div-esperando').classList.add('oculto');
+      document.getElementById('div-respuestas').classList.remove('oculto');
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Texto desencriptado exitosamente",
+        showConfirmButton: false,
+        timer: 1000
+      });
     } else {
-      muñeco.src = "./img/muñeco.png";
-      tituloMensaje.textContent = "Ningún mensaje fue encontrado";
-      parrafo.textContent = "Ingresa el texto que deseas encriptar o desencriptar";
-      swal("Ooops!", "Debes ingresar un texto", "warning");
+      document.getElementById('div-esperando').classList.remove('oculto');
+      document.getElementById('div-respuestas').classList.add('oculto');
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: "Ingresa Texto a desencriptar",
+        showConfirmButton: false,
+        timer: 1000
+      });
     }
 }

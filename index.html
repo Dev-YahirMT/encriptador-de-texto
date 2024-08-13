@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Encriptador de Texto</title>
     <link rel="shortcut icon" href="img/logo2.png" type="image/x-icon" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="styles.css" />
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
 
@@ -16,21 +16,15 @@
             <img src="img/icono.png" alt="" style="margin-top: 10px; display: flex;" width="11%">
         </div>
         <div class="div-encriptar">
-            <textarea
-                name="texto"
-                class="texto"
-                id="texto"
-                cols="30"
-                rows="10"
-                placeholder="Ingresa el texto aquí"
+            <textarea name="texto" class="texto" id="texto" cols="30" rows="10" placeholder="Ingresa el texto aquí"
             ></textarea>
         </div>
         <div class="terminos" style="margin-left: 10%;">
             <img src="img/exclama.png" alt=""><p>Solo letras minúsculas y sin acentos.</p>
         </div>
         <div class="div-botones">
-            <button class="btn-encriptar" type="button" onclick="encriptar()">Encriptar</button>
-            <button type="button" class="btn-desencriptar" value="Desencriptar" onclick="desencriptar()">Desencriptar</button>
+            <button class="btn-encriptar" type="button" onclick="encriptarTexto()">Encriptar</button>
+            <button type="button" class="btn-desencriptar" value="Desencriptar" onclick="desencriptarTexto()">Desencriptar</button>
         </div>
     </div>
     <div class="seccion-derecha">
@@ -41,12 +35,12 @@
                 Ingresa el texto que deseas encriptar o desencriptar
             </p>
         </div>
-        <div id="div-respuestas" class="div-respuestas" style="display: none;">
+        <div id="div-respuestas" class="div-respuestas oculto">
             <div class="div-resp-text">
                 <span id="textoEncriptado" class="textoEncriptado"></span>
             </div>
             <div class="div-resp-btn">
-                <button id="botonCopiar" class="botonCopiar" type="button" onclick="copiarAlPortapapeles()" style="display: none;">Copiar</button>
+                <button id="btn-copiar" class="btn-copiar" type="button" onclick="copiarAlPortapapeles()">Copiar</button>
             </div>
         </div>   
     </div>
